@@ -1,0 +1,3020 @@
+/* =========================================================
+   MOVIEBOOK - COMPLETE STYLE SHEET
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        #0b0b0f;
+
+    color:
+        #f5f5f7;
+
+    line-height:
+        1.6;
+
+    min-height:
+        100vh;
+
+    overflow-x:
+        hidden;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font-family:
+        inherit;
+}
+
+
+button,
+select,
+input[type="radio"],
+input[type="checkbox"],
+a {
+    cursor:
+        pointer;
+}
+
+
+button:disabled,
+select:disabled,
+input:disabled {
+    cursor:
+        not-allowed;
+}
+
+
+a {
+    text-decoration:
+        none;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        1000;
+
+    width:
+        100%;
+
+    min-height:
+        72px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        0 6%;
+
+    background:
+        rgba(11, 11, 15, 0.96);
+
+    border-bottom:
+        1px solid #292932;
+
+    backdrop-filter:
+        blur(14px);
+}
+
+
+.nav-logo {
+    font-size:
+        27px;
+
+    font-weight:
+        800;
+
+    color:
+        #ffffff;
+
+    letter-spacing:
+        -0.5px;
+
+    white-space:
+        nowrap;
+}
+
+
+.nav-links {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        32px;
+}
+
+
+.nav-links a {
+    color:
+        #c8c8d0;
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.nav-links a:hover {
+    color:
+        #ffffff;
+}
+
+
+.nav-links .admin-link {
+    padding:
+        10px 18px;
+
+    border:
+        1px solid #383844;
+
+    border-radius:
+        9px;
+
+    background:
+        #18181f;
+}
+
+
+.nav-links .admin-link:hover {
+    background:
+        #24242d;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height:
+        620px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        100px 7%;
+
+    text-align:
+        center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #24212e 0%,
+            #0b0b0f 55%,
+            #0b0b0f 100%
+        );
+}
+
+
+.hero-content {
+    max-width:
+        900px;
+}
+
+
+.section-label {
+    display:
+        inline-block;
+
+    margin-bottom:
+        15px;
+
+    color:
+        #aeb5ff;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        4px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.hero h1 {
+    font-size:
+        clamp(48px, 7vw, 86px);
+
+    line-height:
+        1.02;
+
+    letter-spacing:
+        -3px;
+
+    margin-bottom:
+        25px;
+}
+
+
+.hero h1 span {
+    display:
+        block;
+
+    color:
+        #b4a1ff;
+}
+
+
+.hero p {
+    max-width:
+        720px;
+
+    margin:
+        0 auto 32px;
+
+    color:
+        #a9a9b4;
+
+    font-size:
+        18px;
+}
+
+
+.hero-button {
+    display:
+        inline-block;
+
+    padding:
+        14px 28px;
+
+    border-radius:
+        10px;
+
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+
+    font-weight:
+        800;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.hero-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   SECTION COMMON
+   ========================================================= */
+
+.movies-section,
+.booking-section,
+.confirmation-section,
+.history-section,
+.cancel-section,
+.features-section {
+    width:
+        100%;
+
+    padding:
+        90px 7%;
+}
+
+
+.section-heading {
+    text-align:
+        center;
+
+    margin-bottom:
+        55px;
+}
+
+
+.section-heading h2 {
+    font-size:
+        clamp(35px, 5vw, 52px);
+
+    line-height:
+        1.1;
+
+    margin-bottom:
+        15px;
+
+    letter-spacing:
+        -1.5px;
+}
+
+
+.section-heading p {
+    color:
+        #9999a5;
+
+    font-size:
+        17px;
+}
+
+
+/* =========================================================
+   MOVIE GRID
+   ========================================================= */
+
+.movie-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap:
+        24px;
+
+    max-width:
+        1300px;
+
+    margin:
+        0 auto;
+}
+
+
+.movie-card {
+    overflow:
+        hidden;
+
+    background:
+        #15151c;
+
+    border:
+        1px solid #2b2b35;
+
+    border-radius:
+        16px;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.movie-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        #53536b;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+.movie-poster {
+    width:
+        100%;
+
+    height:
+        330px;
+
+    overflow:
+        hidden;
+
+    background:
+        #202028;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+
+.movie-poster img {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+}
+
+
+.movie-poster-placeholder {
+    font-size:
+        50px;
+
+    opacity:
+        0.65;
+}
+
+
+.movie-info {
+    padding:
+        20px;
+}
+
+
+.movie-info h3 {
+    font-size:
+        21px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.movie-info p {
+    color:
+        #a3a3ae;
+
+    font-size:
+        14px;
+}
+
+
+.movie-price {
+    margin-top:
+        15px;
+
+    font-size:
+        18px;
+
+    font-weight:
+        800;
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-text {
+    width:
+        100%;
+
+    text-align:
+        center;
+
+    color:
+        #92929e;
+
+    font-size:
+        17px;
+
+    padding:
+        40px;
+}
+
+
+/* =========================================================
+   BOOKING LAYOUT
+   ========================================================= */
+
+.booking-layout {
+    max-width:
+        1400px;
+
+    margin:
+        0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(320px, 0.75fr);
+
+    gap:
+        30px;
+
+    align-items:
+        start;
+}
+
+
+/* =========================================================
+   BOOKING FORM CARD
+   ========================================================= */
+
+.booking-form-card {
+    background:
+        #121218;
+
+    border:
+        1px solid #292932;
+
+    border-radius:
+        16px;
+
+    padding:
+        36px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+
+.booking-step {
+    padding:
+        0 0 35px;
+
+    margin-bottom:
+        35px;
+
+    border-bottom:
+        1px solid #292932;
+}
+
+
+.booking-step:last-of-type {
+    margin-bottom:
+        0;
+
+    border-bottom:
+        none;
+}
+
+
+.booking-step h3 {
+    margin-bottom:
+        25px;
+
+    font-size:
+        21px;
+}
+
+
+.booking-step label,
+.form-group label {
+    display:
+        block;
+
+    margin-bottom:
+        9px;
+
+    color:
+        #d6d6dd;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width:
+        100%;
+
+    min-height:
+        50px;
+
+    padding:
+        0 15px;
+
+    background:
+        #101015;
+
+    color:
+        #f5f5f7;
+
+    border:
+        1px solid #33333e;
+
+    border-radius:
+        9px;
+
+    outline:
+        none;
+
+    font-size:
+        15px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+
+    cursor:
+        pointer;
+}
+
+
+input[type="text"] {
+    cursor:
+        text;
+}
+
+
+input[type="number"] {
+    cursor:
+        text;
+}
+
+
+input:focus,
+select:focus {
+    border-color:
+        #8585a7;
+
+    box-shadow:
+        0 0 0 3px rgba(133, 133, 167, 0.12);
+}
+
+
+input::placeholder {
+    color:
+        #777783;
+}
+
+
+/* =========================================================
+   SELECT DROPDOWN
+   ========================================================= */
+
+select {
+    appearance:
+        auto;
+
+    -webkit-appearance:
+        auto;
+
+    -moz-appearance:
+        auto;
+}
+
+
+select option {
+    background:
+        #15151c;
+
+    color:
+        #ffffff;
+}
+
+
+/* Important:
+   Prevent disabled controls from appearing as
+   selectable/cross cursor */
+
+select:disabled {
+    opacity:
+        0.55;
+
+    cursor:
+        not-allowed;
+}
+
+
+/* =========================================================
+   SHOW GRID
+   ========================================================= */
+
+.show-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        25px 22px;
+}
+
+
+.form-group {
+    min-width:
+        0;
+}
+
+
+/* =========================================================
+   PAYMENT METHODS
+   ========================================================= */
+
+.payment-methods {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        12px;
+}
+
+
+.payment-option {
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        7px;
+
+    min-height:
+        70px;
+
+    padding:
+        14px;
+
+    background:
+        #17171f;
+
+    border:
+        1px solid #30303a;
+
+    border-radius:
+        10px;
+
+    cursor:
+        pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.payment-option:hover {
+    background:
+        #1c1c25;
+
+    border-color:
+        #4d4d5c;
+}
+
+
+.payment-option input[type="radio"] {
+    cursor:
+        pointer;
+
+    accent-color:
+        #ffffff;
+}
+
+
+.payment-option span {
+    font-size:
+        18px;
+}
+
+
+.payment-option strong {
+    font-size:
+        14px;
+}
+
+
+.payment-option small {
+    width:
+        100%;
+
+    color:
+        #8d8d99;
+
+    font-size:
+        11px;
+
+    padding-left:
+        25px;
+}
+
+
+/* =========================================================
+   PRICE SUMMARY
+   ========================================================= */
+
+.price-summary {
+    margin:
+        25px 0;
+
+    padding:
+        22px;
+
+    background:
+        #1a1a21;
+
+    border:
+        1px solid #30303a;
+
+    border-radius:
+        12px;
+}
+
+
+.summary-row,
+.summary-total {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+}
+
+
+.summary-row {
+    padding:
+        7px 0;
+
+    color:
+        #c3c3cc;
+}
+
+
+.summary-row strong {
+    color:
+        #ffffff;
+}
+
+
+.summary-total {
+    margin-top:
+        18px;
+
+    padding-top:
+        18px;
+
+    border-top:
+        1px solid #35353f;
+
+    font-size:
+        20px;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   BOOK BUTTON
+   ========================================================= */
+
+.book-button {
+    width:
+        100%;
+
+    min-height:
+        58px;
+
+    border:
+        none;
+
+    border-radius:
+        10px;
+
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+
+    font-size:
+        17px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.book-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+
+.book-button:disabled {
+    opacity:
+        0.5;
+
+    transform:
+        none;
+
+    box-shadow:
+        none;
+}
+
+
+.booking-message {
+    margin-top:
+        15px;
+
+    text-align:
+        center;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   SEATS
+   ========================================================= */
+
+.seat-container {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(5, minmax(50px, 1fr));
+
+    gap:
+        12px;
+
+    margin-top:
+        15px;
+}
+
+
+.seat {
+    min-height:
+        50px;
+
+    border:
+        1px solid #3a3a46;
+
+    border-radius:
+        9px;
+
+    background:
+        #1b1b23;
+
+    color:
+        #ffffff;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.seat:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #77778c;
+}
+
+
+.seat.selected {
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+
+    border-color:
+        #ffffff;
+}
+
+
+.seat.booked {
+    background:
+        #3a2020;
+
+    color:
+        #88838a;
+
+    border-color:
+        #4b3030;
+
+    cursor:
+        not-allowed;
+
+    text-decoration:
+        line-through;
+}
+
+
+.seat-placeholder {
+    grid-column:
+        1 / -1;
+
+    text-align:
+        center;
+
+    color:
+        #81818c;
+
+    padding:
+        25px;
+}
+
+
+.selected-seats-text {
+    margin-top:
+        15px;
+
+    color:
+        #ccccd4;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   LIVE BOOKING SUMMARY
+   ========================================================= */
+
+.live-summary {
+    position:
+        sticky;
+
+    top:
+        100px;
+
+    background:
+        #121218;
+
+    border:
+        1px solid #292932;
+
+    border-radius:
+        16px;
+
+    padding:
+        30px;
+
+    min-height:
+        500px;
+}
+
+
+.live-summary h2 {
+    margin-bottom:
+        25px;
+
+    font-size:
+        25px;
+}
+
+
+.summary-poster {
+    width:
+        100%;
+
+    height:
+        370px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #202027;
+
+    border-radius:
+        12px;
+
+    margin-bottom:
+        28px;
+
+    color:
+        #9999a5;
+
+    font-size:
+        55px;
+}
+
+
+.summary-poster img {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+}
+
+
+.summary-details {
+    width:
+        100%;
+}
+
+
+.live-summary-row {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        16px 0;
+
+    border-bottom:
+        1px solid #292932;
+}
+
+
+.live-summary-row span {
+    color:
+        #858593;
+}
+
+
+.live-summary-row strong {
+    text-align:
+        right;
+
+    color:
+        #ffffff;
+
+    word-break:
+        break-word;
+}
+
+
+/* =========================================================
+   CONFIRMATION SECTION
+   ========================================================= */
+
+.confirmation-section {
+    background:
+        #09090d;
+}
+
+
+.confirmation-header {
+    text-align:
+        center;
+
+    margin-bottom:
+        45px;
+}
+
+
+.confirmation-header h2 {
+    font-size:
+        clamp(34px, 5vw, 52px);
+
+    margin-bottom:
+        10px;
+}
+
+
+.confirmation-header p {
+    color:
+        #9999a5;
+}
+
+
+/* =========================================================
+   PROFESSIONAL TICKET
+   ========================================================= */
+
+.ticket-card {
+    position:
+        relative;
+
+    width:
+        min(100%, 1000px);
+
+    margin:
+        0 auto;
+
+    background:
+        #f7f7f9;
+
+    color:
+        #17171d;
+
+    border-radius:
+        20px;
+
+    overflow:
+        hidden;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================================
+   TICKET TOP
+   ========================================================= */
+
+.ticket-top {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        25px 35px;
+
+    background:
+        #202027;
+
+    color:
+        #ffffff;
+}
+
+
+.ticket-brand {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+}
+
+
+.ticket-logo {
+    font-size:
+        30px;
+}
+
+
+.ticket-brand h3 {
+    font-size:
+        24px;
+
+    line-height:
+        1;
+}
+
+
+.ticket-brand p {
+    margin-top:
+        4px;
+
+    color:
+        #aaaab4;
+
+    font-size:
+        12px;
+}
+
+
+.booking-status {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid #55555f;
+
+    border-radius:
+        999px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+}
+
+
+.booking-status span {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        19px;
+
+    height:
+        19px;
+
+    border-radius:
+        50%;
+
+    background:
+        #57d98b;
+
+    color:
+        #101015;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   TICKET MOVIE AREA
+   ========================================================= */
+
+.ticket-movie {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    padding:
+        35px;
+}
+
+
+.ticket-poster {
+    flex:
+        0 0 190px;
+
+    width:
+        190px;
+
+    height:
+        250px;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        12px;
+
+    background:
+        #dedee4;
+
+    color:
+        #777783;
+
+    font-size:
+        50px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.confirmation-poster-image {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+}
+
+
+.ticket-movie-info {
+    min-width:
+        0;
+}
+
+
+.small-label {
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        #858591;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+
+.ticket-movie-info h2 {
+    margin-bottom:
+        10px;
+
+    color:
+        #111116;
+
+    font-size:
+        clamp(30px, 5vw, 50px);
+
+    line-height:
+        1.05;
+}
+
+
+.ticket-movie-info p {
+    color:
+        #777783;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   BOOKING ID
+   ========================================================= */
+
+.ticket-booking-id {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin:
+        0 35px;
+
+    padding:
+        20px 0;
+
+    border-top:
+        1px solid #d7d7dd;
+
+    border-bottom:
+        1px solid #d7d7dd;
+}
+
+
+.ticket-booking-id span {
+    display:
+        block;
+
+    color:
+        #858591;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+
+.ticket-booking-id strong {
+    display:
+        block;
+
+    margin-top:
+        4px;
+
+    font-size:
+        24px;
+
+    letter-spacing:
+        2px;
+}
+
+
+.ticket-id-icon {
+    width:
+        50px;
+
+    height:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid #cfcfd5;
+
+    border-radius:
+        8px;
+
+    font-size:
+        25px;
+}
+
+
+/* =========================================================
+   TICKET DIVIDER / TEAR-OFF
+   ========================================================= */
+
+.ticket-divider {
+    position:
+        relative;
+
+    height:
+        25px;
+
+    margin:
+        0;
+
+    border-bottom:
+        2px dashed #c7c7ce;
+}
+
+
+.ticket-divider::before,
+.ticket-divider::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    width:
+        26px;
+
+    height:
+        26px;
+
+    background:
+        #09090d;
+
+    border-radius:
+        50%;
+}
+
+
+.ticket-divider::before {
+    left:
+        -13px;
+}
+
+
+.ticket-divider::after {
+    right:
+        -13px;
+}
+
+
+/* =========================================================
+   CUSTOMER
+   ========================================================= */
+
+.customer-block {
+    padding:
+        28px 35px 0;
+}
+
+
+.ticket-field {
+    min-width:
+        0;
+}
+
+
+.ticket-field span {
+    display:
+        block;
+
+    margin-bottom:
+        6px;
+
+    color:
+        #858591;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.ticket-field strong {
+    display:
+        block;
+
+    color:
+        #17171d;
+
+    font-size:
+        15px;
+
+    word-break:
+        break-word;
+}
+
+
+.full-width {
+    width:
+        100%;
+}
+
+
+/* =========================================================
+   TICKET DETAILS GRID
+   ========================================================= */
+
+.ticket-details-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        28px 25px;
+
+    padding:
+        30px 35px;
+}
+
+
+.ticket-details-grid .ticket-field {
+    min-width:
+        0;
+}
+
+
+/* =========================================================
+   PAYMENT DETAILS
+   ========================================================= */
+
+.payment-details {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    margin:
+        0 35px;
+
+    padding:
+        22px 0;
+
+    border-top:
+        1px solid #d7d7dd;
+
+    border-bottom:
+        1px solid #d7d7dd;
+}
+
+
+.ticket-amount {
+    text-align:
+        right;
+}
+
+
+.ticket-amount span {
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        #858591;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.ticket-amount strong {
+    font-size:
+        25px;
+
+    color:
+        #111116;
+}
+
+
+/* =========================================================
+   BARCODE / TICKET BOTTOM
+   ========================================================= */
+
+.ticket-bottom {
+    padding:
+        28px 35px 35px;
+
+    text-align:
+        center;
+}
+
+
+.barcode {
+    height:
+        60px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        stretch;
+
+    gap:
+        4px;
+
+    margin:
+        0 auto 14px;
+
+    overflow:
+        hidden;
+
+    max-width:
+        400px;
+}
+
+
+.barcode span {
+    display:
+        block;
+
+    width:
+        4px;
+
+    background:
+        #111116;
+}
+
+
+.barcode span:nth-child(2n) {
+    width:
+        2px;
+}
+
+
+.barcode span:nth-child(3n) {
+    width:
+        7px;
+}
+
+
+.barcode span:nth-child(4n) {
+    width:
+        3px;
+}
+
+
+.barcode span:nth-child(5n) {
+    width:
+        8px;
+}
+
+
+.ticket-bottom p {
+    color:
+        #858591;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   QR-STYLE BOOKING CODE
+   ========================================================= */
+
+/*
+   This is a visual QR-style booking code.
+   The actual booking ID remains the authoritative identifier.
+*/
+
+.ticket-id-icon {
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.ticket-id-icon::before {
+    content:
+        "▦";
+
+    position:
+        absolute;
+
+    font-size:
+        38px;
+
+    line-height:
+        1;
+
+    color:
+        #202027;
+}
+
+
+.ticket-id-icon {
+    font-size:
+        0;
+}
+
+
+/* =========================================================
+   CONFIRMATION ACTIONS
+   ========================================================= */
+
+.confirmation-actions {
+    width:
+        min(100%, 1000px);
+
+    margin:
+        25px auto 0;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        15px;
+}
+
+
+.confirmation-button {
+    min-width:
+        170px;
+
+    min-height:
+        48px;
+
+    padding:
+        0 20px;
+
+    border:
+        none;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.confirmation-button:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.confirmation-button.secondary {
+    background:
+        #24242d;
+
+    color:
+        #ffffff;
+
+    border:
+        1px solid #3b3b46;
+}
+
+
+/* =========================================================
+   BOOKING HISTORY
+   ========================================================= */
+
+.table-container {
+    width:
+        100%;
+
+    overflow-x:
+        auto;
+
+    border:
+        1px solid #292932;
+
+    border-radius:
+        14px;
+
+    background:
+        #121218;
+}
+
+
+table {
+    width:
+        100%;
+
+    min-width:
+        1000px;
+
+    border-collapse:
+        collapse;
+}
+
+
+thead {
+    background:
+        #1c1c23;
+}
+
+
+th,
+td {
+    padding:
+        15px 16px;
+
+    text-align:
+        left;
+
+    border-bottom:
+        1px solid #292932;
+
+    font-size:
+        13px;
+}
+
+
+th {
+    color:
+        #dcdce3;
+
+    font-weight:
+        800;
+}
+
+
+td {
+    color:
+        #a9a9b4;
+}
+
+
+tr:last-child td {
+    border-bottom:
+        none;
+}
+
+
+.empty-table {
+    text-align:
+        center;
+
+    padding:
+        35px;
+
+    color:
+        #7f7f8b;
+}
+
+
+/* =========================================================
+   CANCEL SECTION
+   ========================================================= */
+
+.cancel-card {
+    max-width:
+        1000px;
+
+    margin:
+        0 auto;
+
+    padding:
+        30px;
+
+    background:
+        #121218;
+
+    border:
+        1px solid #292932;
+
+    border-radius:
+        16px;
+}
+
+
+.cancel-search label {
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+}
+
+
+.cancel-search-row {
+    display:
+        flex;
+
+    gap:
+        12px;
+}
+
+
+.cancel-search-row input {
+    flex:
+        1;
+}
+
+
+.cancel-search-row button,
+.cancel-button {
+    padding:
+        0 22px;
+
+    border:
+        none;
+
+    border-radius:
+        9px;
+
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+}
+
+
+.booking-details {
+    margin-top:
+        30px;
+
+    padding-top:
+        30px;
+
+    border-top:
+        1px solid #292932;
+}
+
+
+.cancel-info-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        22px;
+
+    margin-bottom:
+        30px;
+}
+
+
+.cancel-info-grid span {
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #858591;
+
+    font-size:
+        11px;
+
+    text-transform:
+        uppercase;
+}
+
+
+.cancel-info-grid strong {
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+
+    word-break:
+        break-word;
+}
+
+
+.booking-details h3 {
+    margin-bottom:
+        20px;
+}
+
+
+.cancel-seat-container {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap:
+        10px;
+
+    margin-bottom:
+        25px;
+}
+
+
+.cancel-seat {
+    min-height:
+        48px;
+
+    border:
+        1px solid #393944;
+
+    border-radius:
+        8px;
+
+    background:
+        #1b1b23;
+
+    color:
+        #ffffff;
+
+    cursor:
+        pointer;
+
+    font-weight:
+        700;
+}
+
+
+.cancel-seat.selected {
+    background:
+        #ffffff;
+
+    color:
+        #111111;
+}
+
+
+.cancel-message {
+    margin-top:
+        15px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features-section {
+    background:
+        #0e0e13;
+}
+
+
+.feature-grid {
+    max-width:
+        1200px;
+
+    margin:
+        0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        20px;
+}
+
+
+.feature-card {
+    padding:
+        30px 24px;
+
+    background:
+        #15151c;
+
+    border:
+        1px solid #292932;
+
+    border-radius:
+        14px;
+
+    text-align:
+        center;
+}
+
+
+.feature-icon {
+    font-size:
+        36px;
+
+    margin-bottom:
+        15px;
+}
+
+
+.feature-card h3 {
+    margin-bottom:
+        10px;
+}
+
+
+.feature-card p {
+    color:
+        #8e8e99;
+
+    font-size:
+        14px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding:
+        55px 7%;
+
+    text-align:
+        center;
+
+    border-top:
+        1px solid #292932;
+
+    background:
+        #09090d;
+}
+
+
+.footer-logo {
+    font-size:
+        24px;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        10px;
+}
+
+
+.footer p {
+    color:
+        #858591;
+
+    font-size:
+        14px;
+}
+
+
+.footer-copy {
+    margin-top:
+        12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding:
+            0 4%;
+    }
+
+
+    .nav-links {
+        gap:
+            18px;
+    }
+
+
+    .booking-layout {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .live-summary {
+        position:
+            relative;
+
+        top:
+            auto;
+    }
+
+
+    .summary-poster {
+        height:
+            450px;
+    }
+
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .navbar {
+        min-height:
+            auto;
+
+        padding:
+            18px 5%;
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+    }
+
+
+    .nav-links {
+        width:
+            100%;
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+
+        gap:
+            12px 18px;
+    }
+
+
+    .nav-links a {
+        font-size:
+            13px;
+    }
+
+
+    .hero {
+        min-height:
+            520px;
+
+        padding:
+            80px 6%;
+    }
+
+
+    .hero h1 {
+        letter-spacing:
+            -2px;
+    }
+
+
+    .movies-section,
+    .booking-section,
+    .confirmation-section,
+    .history-section,
+    .cancel-section,
+    .features-section {
+        padding:
+            65px 5%;
+    }
+
+
+    .booking-form-card {
+        padding:
+            22px;
+    }
+
+
+    .show-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .payment-methods {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .seat-container {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+
+    .summary-poster {
+        height:
+            350px;
+    }
+
+
+    /* Ticket */
+
+    .ticket-top {
+        padding:
+            20px;
+    }
+
+
+    .ticket-movie {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        padding:
+            25px 20px;
+    }
+
+
+    .ticket-poster {
+        width:
+            150px;
+
+        height:
+            210px;
+
+        flex-basis:
+            210px;
+    }
+
+
+    .ticket-booking-id {
+        margin:
+            0 20px;
+    }
+
+
+    .customer-block {
+        padding:
+            25px 20px 0;
+    }
+
+
+    .ticket-details-grid {
+        grid-template-columns:
+            1fr 1fr;
+
+        padding:
+            25px 20px;
+
+        gap:
+            22px 15px;
+    }
+
+
+    .payment-details {
+        margin:
+            0 20px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .ticket-amount {
+        text-align:
+            left;
+    }
+
+
+    .ticket-bottom {
+        padding:
+            25px 20px 30px;
+    }
+
+
+    .confirmation-actions {
+        flex-direction:
+            column;
+
+        padding:
+            0 5%;
+    }
+
+
+    .confirmation-button {
+        width:
+            100%;
+    }
+
+
+    .cancel-search-row {
+        flex-direction:
+            column;
+    }
+
+
+    .cancel-search-row button {
+        min-height:
+            48px;
+    }
+
+
+    .cancel-info-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .cancel-seat-container {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+
+    .feature-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-logo {
+        font-size:
+            23px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            42px;
+    }
+
+
+    .section-heading h2 {
+        font-size:
+            34px;
+    }
+
+
+    .seat-container {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .cancel-seat-container {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .ticket-top {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            15px;
+    }
+
+
+    .ticket-details-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .ticket-booking-id strong {
+        font-size:
+            19px;
+    }
+
+}
+
+
+/* =========================================================
+   PRINT TICKET
+   ========================================================= */
+
+@media print {
+
+    body {
+        background:
+            #ffffff;
+
+        color:
+            #111111;
+    }
+
+
+    .navbar,
+    .hero,
+    .movies-section,
+    .booking-section,
+    .history-section,
+    .cancel-section,
+    .features-section,
+    .confirmation-header,
+    .confirmation-actions,
+    .footer {
+        display:
+            none !important;
+    }
+
+
+    .confirmation-section {
+        display:
+            block !important;
+
+        padding:
+            0;
+
+        background:
+            #ffffff;
+    }
+
+
+    .ticket-card {
+        width:
+            100%;
+
+        max-width:
+            900px;
+
+        margin:
+            0 auto;
+
+        box-shadow:
+            none;
+
+        border:
+            1px solid #cccccc;
+    }
+
+
+    .ticket-poster {
+        print-color-adjust:
+            exact;
+
+        -webkit-print-color-adjust:
+            exact;
+    }
+
+
+    .ticket-top {
+        print-color-adjust:
+            exact;
+
+        -webkit-print-color-adjust:
+            exact;
+    }
+
+}
+
+
+/* =========================================================
+   CURSOR / INTERACTION SAFETY
+   ========================================================= */
+
+button,
+select,
+input[type="radio"],
+input[type="checkbox"],
+.seat,
+.cancel-seat,
+.payment-option,
+.hero-button,
+.confirmation-button {
+    cursor:
+        pointer;
+}
+
+
+input[type="text"],
+input[type="number"] {
+    cursor:
+        text;
+}
+
+
+select:disabled,
+button:disabled,
+input:disabled {
+    cursor:
+        not-allowed;
+}
+
+
+/* =========================================================
+   VIEW NAVIGATION (each interface opens upon clicking button)
+   ========================================================= */
+
+.js .view:not(.active-view) {
+    display: none !important;
+}
+
+.nav-links a.active {
+    color: #ffffff !important;
+    border-bottom: 2px solid #8b7cff;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.hero-button.secondary {
+    background: #1c1c26;
+    border: 1px solid #45455a;
+    color: #e0e0ea;
+}
+
+.hero-button.secondary:hover {
+    background: #282836;
+    border-color: #8b7cff;
+}
+
+.card-book-btn {
+    display: block;
+    margin-top: 12px;
+    padding: 9px 15px;
+    background: #6c5ce7;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+    text-align: center;
+}
+
+.card-book-btn:hover {
+    background: #5641e5;
+    transform: translateY(-1px);
+}
+
+.history-action-btn {
+    background: #2b1f3d;
+    border: 1px solid #6c469b;
+    color: #d8b4fe;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.history-action-btn:hover {
+    background: #582b8c;
+    color: #ffffff;
+}
+
+.book-now-history-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: #6c5ce7;
+    color: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================================================
+   END OF STYLE.CSS
+   ========================================================= */

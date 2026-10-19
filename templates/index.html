@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieBook - Movie Ticket Booking</title>
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+<nav class="navbar">
+    <div class="nav-logo" onclick="showView('home')" style="cursor: pointer;">
+        🎬 MovieBook
+    </div>
+
+    <div class="nav-links">
+        <a href="#home" class="nav-link" onclick="showView('home'); return false;">Home</a>
+        <a href="#movies" class="nav-link" onclick="showView('movies'); return false;">Movies</a>
+        <a href="#booking" class="nav-link" onclick="showView('booking'); return false;">Book Ticket</a>
+        <a href="#history" class="nav-link" onclick="showView('history'); return false;">Booking History</a>
+        <a href="#cancel" class="nav-link" onclick="showView('cancel'); return false;">Cancel Ticket</a>
+        <a href="/admin" class="admin-link">Admin</a>
+    </div>
+</nav>
+
+
+<!-- =========================================================
+     HOME / HERO (VIEW)
+     ========================================================= -->
+<section id="home" class="hero view">
+    <div class="hero-content">
+        <span class="section-label">WELCOME TO MOVIEBOOK</span>
+        <h1>
+            Book Your Movie
+            <span>Tickets Easily</span>
+        </h1>
+        <p>
+            Choose your movie, theatre, language, show time and seats — all in one seamless place.
+        </p>
+        <div class="hero-actions">
+            <button type="button" class="hero-button" onclick="showView('booking')">
+                Book Your Ticket
+            </button>
+            <button type="button" class="hero-button secondary" onclick="showView('movies')">
+                Explore Movies
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     FEATURES SECTION (PART OF HOME VIEW)
+     ========================================================= -->
+<section id="features" class="features-section view">
+    <div class="section-heading">
+        <span class="section-label">WHY MOVIEBOOK</span>
+        <h2>Simple. Fast. Convenient.</h2>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card" onclick="showView('movies')" style="cursor: pointer;">
+            <div class="feature-icon">🎬</div>
+            <h3>Multiple Movies</h3>
+            <p>Choose from the latest blockbuster movies available across multiple top theatres.</p>
+        </div>
+
+        <div class="feature-card" onclick="showView('booking')" style="cursor: pointer;">
+            <div class="feature-icon">🪑</div>
+            <h3>Select Your Seats</h3>
+            <p>Interactive real-time seat map to pick your favorite spots before completing booking.</p>
+        </div>
+
+        <div class="feature-card" onclick="showView('booking')" style="cursor: pointer;">
+            <div class="feature-icon">💳</div>
+            <h3>Easy Payment</h3>
+            <p>Pay securely with your choice of UPI (GPay/PhonePe/Paytm), Credit Card or Debit Card.</p>
+        </div>
+
+        <div class="feature-card" onclick="showView('cancel')" style="cursor: pointer;">
+            <div class="feature-icon">🎟</div>
+            <h3>Easy Cancellation</h3>
+            <p>Search any booking and cancel selected seats instantly with real-time refunds calculation.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     MOVIES (VIEW)
+     ========================================================= -->
+<section id="movies" class="movies-section view">
+    <div class="section-heading">
+        <span class="section-label">NOW SHOWING</span>
+        <h2>Choose Your Movie</h2>
+        <p>Select any movie below to view show timings, available theatres, and book your tickets.</p>
+    </div>
+
+    <div id="movieContainer" class="movie-grid">
+        <p class="loading-text">Loading movies...</p>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     BOOKING SECTION (VIEW)
+     ========================================================= -->
+<section id="booking" class="booking-section view">
+    <div class="section-heading">
+        <span class="section-label">BOOK YOUR TICKET</span>
+        <h2>Movie Booking</h2>
+    </div>
+
+    <div class="booking-layout">
+        <!-- LEFT SIDE: FORM -->
+        <div class="booking-form-card">
+            <!-- 1. CUSTOMER & MOVIE -->
+            <div class="booking-step">
+                <h3>1. Customer Details</h3>
+                <label for="customerName">Customer Name</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                >
+
+                <label for="movieSelect" style="margin-top: 14px;">Select Movie</label>
+                <select id="movieSelect">
+                    <option value="">-- Select Movie --</option>
+                </select>
+            </div>
+
+            <!-- 2. SELECT SHOW -->
+            <div class="booking-step">
+                <h3>2. Select Show</h3>
+                <div class="show-grid">
+                    <div class="form-group">
+                        <label for="showDate">Date</label>
+                        <select id="showDate" disabled>
+                            <option value="">Select Date</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="showTheatre">Theatre</label>
+                        <select id="showTheatre" disabled>
+                            <option value="">Select Theatre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="showLanguage">Language</label>
+                        <select id="showLanguage" disabled>
+                            <option value="">Select Language</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="showTime">Show Time</label>
+                        <select id="showTime" disabled>
+                            <option value="">Select Time</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. NUMBER OF TICKETS -->
+            <div class="booking-step">
+                <h3>3. Number of Tickets</h3>
+                <label for="ticketCount">Number of Tickets</label>
+                <input
+                    type="number"
+                    id="ticketCount"
+                    min="1"
+                    max="20"
+                    value="1"
+                >
+            </div>
+
+            <!-- 4. SELECT SEATS -->
+            <div class="booking-step">
+                <h3>4. Select Seats</h3>
+                <div id="seatContainer" class="seat-container">
+                    <p class="seat-placeholder">Please select a movie and show timing first.</p>
+                </div>
+                <div id="selectedSeatsText" class="selected-seats-text">
+                    Selected Seats: None
+                </div>
+            </div>
+
+            <!-- 5. PAYMENT METHOD -->
+            <div class="booking-step">
+                <h3>5. Payment Method</h3>
+                <div class="payment-methods">
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="UPI" checked>
+                        <span>📱</span>
+                        <strong>UPI</strong>
+                        <small>Google Pay / PhonePe / Paytm</small>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="Credit Card">
+                        <span>💳</span>
+                        <strong>Credit Card</strong>
+                        <small>Visa / Mastercard</small>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="Debit Card">
+                        <span>💳</span>
+                        <strong>Debit Card</strong>
+                        <small>All major bank cards</small>
+                    </label>
+                </div>
+            </div>
+
+            <!-- PRICE SUMMARY -->
+            <div class="price-summary">
+                <div class="summary-row">
+                    <span>Ticket Price</span>
+                    <strong id="ticketPrice">₹0</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Tickets</span>
+                    <strong id="summaryTickets">0</strong>
+                </div>
+                <div class="summary-total">
+                    <span>Total Amount</span>
+                    <strong id="totalAmount">₹0</strong>
+                </div>
+            </div>
+
+            <!-- BOOK BUTTON -->
+            <button type="button" id="bookButton" class="book-button">
+                Book Ticket
+            </button>
+
+            <div id="bookingMessage" class="booking-message"></div>
+        </div>
+
+        <!-- RIGHT SIDE: LIVE BOOKING SUMMARY -->
+        <aside class="live-summary">
+            <h2>Booking Summary</h2>
+
+            <div id="summaryPoster" class="summary-poster">
+                <span>🎬</span>
+            </div>
+
+            <div class="summary-details">
+                <div class="live-summary-row">
+                    <span>Movie</span>
+                    <strong id="summaryMovie">-</strong>
+                </div>
+
+                <div class="live-summary-row">
+                    <span>Theatre</span>
+                    <strong id="summaryTheatre">Not selected</strong>
+                </div>
+
+                <div class="live-summary-row">
+                    <span>Date</span>
+                    <strong id="summaryDate">-</strong>
+                </div>
+
+                <div class="live-summary-row">
+                    <span>Time</span>
+                    <strong id="summaryTime">-</strong>
+                </div>
+
+                <div class="live-summary-row">
+                    <span>Language</span>
+                    <strong id="summaryLanguage">-</strong>
+                </div>
+
+                <div class="live-summary-row">
+                    <span>Seats</span>
+                    <strong id="summarySeats">None</strong>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     BOOKING CONFIRMATION (VIEW)
+     ========================================================= -->
+<section id="confirmation" class="confirmation-section view">
+    <div class="confirmation-header">
+        <span class="section-label">BOOKING CONFIRMED</span>
+        <h2>Your Movie Ticket</h2>
+        <p>Your booking has been successfully confirmed. Enjoy the show!</p>
+    </div>
+
+    <div class="ticket-card">
+        <!-- TICKET TOP -->
+        <div class="ticket-top">
+            <div class="ticket-brand">
+                <span class="ticket-logo">🎬</span>
+                <div>
+                    <h3>MovieBook</h3>
+                    <p>Official Movie Ticket</p>
+                </div>
+            </div>
+            <div class="booking-status">
+                <span>✓</span> CONFIRMED
+            </div>
+        </div>
+
+        <!-- MOVIE POSTER + INFO -->
+        <div class="ticket-movie">
+            <div id="confirmationPoster" class="ticket-poster">
+                🎬
+            </div>
+            <div class="ticket-movie-info">
+                <span class="small-label">MOVIE</span>
+                <h2 id="confirmationMovie">-</h2>
+                <p id="confirmationGenre">Movie Ticket</p>
+            </div>
+        </div>
+
+        <!-- BOOKING ID -->
+        <div class="ticket-booking-id">
+            <div>
+                <span>BOOKING ID</span>
+                <strong id="confirmationBookingId">-</strong>
+            </div>
+            <div class="ticket-id-icon">▣</div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="ticket-divider">
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- CUSTOMER -->
+        <div class="customer-block">
+            <div class="ticket-field full-width">
+                <span>Customer</span>
+                <strong id="confirmationCustomer">-</strong>
+            </div>
+        </div>
+
+        <!-- SHOW DETAILS GRID -->
+        <div class="ticket-details-grid">
+            <div class="ticket-field">
+                <span>Theatre</span>
+                <strong id="confirmationTheatre">-</strong>
+            </div>
+
+            <div class="ticket-field">
+                <span>Date</span>
+                <strong id="confirmationDate">-</strong>
+            </div>
+
+            <div class="ticket-field">
+                <span>Show Time</span>
+                <strong id="confirmationTime">-</strong>
+            </div>
+
+            <div class="ticket-field">
+                <span>Language</span>
+                <strong id="confirmationLanguage">-</strong>
+            </div>
+
+            <div class="ticket-field">
+                <span>Seats</span>
+                <strong id="confirmationSeats">-</strong>
+            </div>
+
+            <div class="ticket-field">
+                <span>Tickets</span>
+                <strong id="confirmationTickets">-</strong>
+            </div>
+        </div>
+
+        <!-- PAYMENT DETAILS -->
+        <div class="payment-details">
+            <div class="ticket-field">
+                <span>Payment Method</span>
+                <strong id="confirmationPayment">-</strong>
+            </div>
+            <div class="ticket-amount">
+                <span>Total Amount</span>
+                <strong id="confirmationAmount">₹0</strong>
+            </div>
+        </div>
+
+        <!-- BARCODE & GREETING -->
+        <div class="ticket-bottom">
+            <div class="barcode">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <p>Thank you for booking with MovieBook! Please arrive 15 minutes before showtime.</p>
+        </div>
+    </div>
+
+    <!-- CONFIRMATION BUTTONS -->
+    <div class="confirmation-actions">
+        <button type="button" class="confirmation-button" onclick="window.print()">
+            🖨 Print Ticket
+        </button>
+        <button type="button" class="confirmation-button secondary" onclick="showView('history')">
+            📋 My Bookings
+        </button>
+        <button type="button" class="confirmation-button secondary" onclick="showView('booking')">
+            🎟 Book Another Ticket
+        </button>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     BOOKING HISTORY (VIEW)
+     ========================================================= -->
+<section id="history" class="history-section view">
+    <div class="section-heading">
+        <span class="section-label">YOUR BOOKINGS</span>
+        <h2>Booking History</h2>
+        <p>All bookings made on this device are listed below.</p>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Customer</th>
+                    <th>Movie</th>
+                    <th>Theatre</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Language</th>
+                    <th>Seats</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="bookingHistoryBody">
+                <tr>
+                    <td colspan="11" class="empty-table">Loading booking history...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     CANCEL TICKET (VIEW)
+     ========================================================= -->
+<section id="cancel" class="cancel-section view">
+    <div class="section-heading">
+        <span class="section-label">MANAGE BOOKING</span>
+        <h2>Cancel Ticket</h2>
+        <p>Search your booking by ID and choose which seats you would like to cancel.</p>
+    </div>
+
+    <div class="cancel-card">
+        <div class="cancel-search">
+            <label for="bookingSearchId">Booking ID</label>
+            <div class="cancel-search-row">
+                <input
+                    type="number"
+                    id="bookingSearchId"
+                    placeholder="Enter 5-digit Booking ID"
+                >
+                <button type="button" id="searchBookingButton">
+                    Search Booking
+                </button>
+            </div>
+        </div>
+
+        <div id="bookingDetails" class="booking-details" style="display: none;">
+            <div class="cancel-info-grid">
+                <div>
+                    <span>Booking ID</span>
+                    <strong id="cancelBookingId">-</strong>
+                </div>
+                <div>
+                    <span>Customer</span>
+                    <strong id="cancelCustomer">-</strong>
+                </div>
+                <div>
+                    <span>Movie</span>
+                    <strong id="cancelMovie">-</strong>
+                </div>
+                <div>
+                    <span>Theatre</span>
+                    <strong id="cancelTheatre">-</strong>
+                </div>
+                <div>
+                    <span>Date</span>
+                    <strong id="cancelDate">-</strong>
+                </div>
+                <div>
+                    <span>Time</span>
+                    <strong id="cancelTime">-</strong>
+                </div>
+                <div>
+                    <span>Language</span>
+                    <strong id="cancelLanguage">-</strong>
+                </div>
+                <div>
+                    <span>Amount</span>
+                    <strong id="cancelAmount">₹0</strong>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Select Seats to Cancel</h3>
+            <p style="color: #8e8e9b; font-size: 13px; margin-bottom: 12px;">
+                Click on the seat(s) you wish to cancel, then click "Cancel Selected Seats".
+            </p>
+
+            <div id="cancelSeatContainer" class="cancel-seat-container"></div>
+
+            <button type="button" id="cancelSeatsButton" class="cancel-button">
+                Cancel Selected Seats
+            </button>
+
+            <div id="cancelMessage" class="cancel-message"></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="footer">
+    <div class="footer-logo">
+        🎬 MovieBook
+    </div>
+    <p>Your simple, reliable online movie ticket booking platform.</p>
+    <p class="footer-copy">© 2026 MovieBook. All rights reserved.</p>
+</footer>
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
